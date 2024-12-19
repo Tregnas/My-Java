@@ -1,0 +1,87 @@
+### **Exercise: Employee Management System (Console-Based)**
+
+### **Deliverables**
+- Console-based application that supports all operations.
+- **Menu-driven UI**: The user should interact via a menu like:
+  ```
+  1. Add Employee
+  2. View Employees
+  3. Search Employees
+  4. Update Employee
+  5. Delete Employee
+  6. Save and Exit
+  ```
+
+---
+
+### **Concepts Covered**
+1. **Object-Oriented Design**:
+   - Designing a robust `Employee` class.
+2. **Collections**:
+   - Using `ArrayList` to store and manipulate employee data.
+3. **File Handling**:
+   - Reading and writing serialized objects to files.
+4. **Control Flow**:
+   - Using loops and conditional statements for menu navigation.
+5. **Exception Handling**:
+   - Handling invalid input and file errors gracefully.
+6. **Functional Programming**:
+   - Using `Stream API` for filtering, searching, and summarizing data.
+
+**Scenario:**
+You are tasked with building a simple Employee Management System for a small company. The system should allow an HR user to:
+1. Add employees to the system.
+2. Retrieve details of employees based on criteria.
+3. Save employee data to a file for future reference.
+4. Load employee data from a file when the program starts.
+
+---
+
+### **Requirements:**
+
+#### **1. Employee Class (OOP Basics)**
+- Create a class `Employee` with the following attributes:
+  - `int id` (unique identifier)
+  - `String name`
+  - `int age`
+  - `String department`
+  - `double salary`
+- Include appropriate **constructors, getters, and setters**.
+- Implement `toString()` to display an employee's details in a readable format.
+
+#### **2. HR System Operations (Collections & Functional Programming)**
+- Use a `List<Employee>` to store employee data in memory.
+- Implement the following methods in an `HRManager` class:
+  1. **Add Employee**:
+     - Prompt the user for employee details.
+     - Ensure the `id` is unique.
+  2. **View Employees**:
+     - Display all employees in a formatted table.
+  3. **Search by Criteria**:
+     - Allow the HR user to:
+       - Search by department.
+       - Find employees with a salary greater than a specified amount.
+  4. **Update Employee**:
+     - Update an employee’s details (name, age, department, or salary) by `id`.
+  5. **Delete Employee**:
+     - Remove an employee from the system by `id`.
+
+#### **3. File Handling**
+- Save the `List<Employee>` to a file when exiting the program.
+- Load the `List<Employee>` from the file when starting the program.
+- Use **serialization** for saving and reading the employee list.
+
+#### **4. Exception Handling**
+- Handle potential exceptions, such as:
+  - Invalid input (e.g., letters instead of numbers for `age` or `salary`).
+  - File not found when loading data.
+
+#### **5. Optional Enhancements**
+- Sort employees by salary, department, or age.
+- Implement a **search filter** (e.g., find employees whose names start with a specific letter).
+- Generate a summary report:
+  - Total employees.
+  - Average salary.
+  - Employee count by department.
+
+---
