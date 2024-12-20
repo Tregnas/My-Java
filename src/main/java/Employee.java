@@ -15,12 +15,12 @@ public class Employee {
         this.salary = salary;
     }
 
-    Employee() {
+    Employee(int index) {
         Scanner scanner = new Scanner(System.in);
-        this.id = 0;
+        this.id = index;
 
         System.out.print("Enter employee name: ");
-        this.name = scanner.next();
+        this.name = scanner.nextLine();
 
         while(true){
             System.out.print("Enter employee age: ");
@@ -46,14 +46,15 @@ public class Employee {
                 scanner.next();
             }
         }
+        scanner.close();
     }
 
     @Override
     public String toString(){
-        return "#" + this.id + " Name: " + this.name + " Age: " + this.age + " Department: " + this.department + " Salary: " + this.salary;
+        return "#" + this.id + "\t\tName: " + this.name + "\t"+ "\tAge: " + this.age + "\t\tDepartment: " + this.department + "\t" + "\t\tSalary: " + this.salary;
     }
 
-    public Employee addNewEmployee(){
-        return new Employee();
-    }
+//    public Employee addNewEmployee(){
+//        return new Employee();
+//    }
 }
