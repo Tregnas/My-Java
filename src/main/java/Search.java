@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Search {
     public static void SearchEmployee(ArrayList<Employee> Employees) {
         int action;
-        int foundCount = 0;
+        int foundCount;
 
         Scanner scanner = new Scanner(System.in);
         System.out.print("\n1|By ID\t 2|By name\t 3|By department\t 4|By salary\n>");
@@ -20,9 +20,6 @@ public class Search {
         }
 
         switch (action){
-            default:
-                System.err.print("Your input is invalid\n");
-                break;
             case 1:
                 System.out.print("Enter search ID: \n>");
                 int id = scanner.nextInt();
@@ -87,6 +84,9 @@ public class Search {
                 }
                 System.out.println("--------------------------------------------------------------");
                 System.out.println(foundCount + " records found");
+                break;
+            default:
+                System.err.print("Your input is invalid\n");
                 break;
         }
     }

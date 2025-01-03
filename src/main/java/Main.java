@@ -8,9 +8,12 @@ public class Main {
         // index for manipulating records
         int index;
         // Load the existing Employees from the file
+        ArrayList<Employee> Employees = FileSerializable.DeSerialize();
+
+// OLD WAY
 //        FileStream filestream = new FileStream();
 //        ArrayList<Employee> Employees = filestream.LoadFromFile();
-        ArrayList<Employee> Employees = FileSerializable.DeSerialize();
+
 
         //Print the menu
         String MenuString = "\n1|Add Employee\t 2|View Employees\t 3|Search Employees\t 4|Update Employee\t 5|Delete Employee\t 6|Save and Exit\n>";
@@ -21,9 +24,6 @@ public class Main {
         String action = scanner.nextLine();
         while (!action.equals("6")) {
             switch (action) {
-                default:
-                    System.err.print("Invalid input\n");
-                    break;
                 case "1":
                     index = Employees.size() + 1;
                     Employees.add(new Employee(index));
@@ -44,6 +44,9 @@ public class Main {
                     System.out.println("Enter Employee ID");
                     index = Integer.parseInt(scanner.nextLine());
                     Employees.remove(index - 1);
+                    break;
+                default:
+                    System.err.print("Invalid input\n");
                     break;
             }
             System.out.print(MenuString);
