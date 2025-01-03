@@ -1,13 +1,15 @@
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class Employee {
-    int id;
-    String name;
-    int age;
-    String department;
-    double salary;
+public class Employee implements Serializable {
+    private int id;
+    private String name;
+    private int age;
+    private String department;
+    private double salary;
 
-    Employee(int id, String name, int age, String department, double salary) {
+    //Constructors
+    public Employee(int id, String name, int age, String department, double salary) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -15,7 +17,7 @@ public class Employee {
         this.salary = salary;
     }
 
-    Employee(int index) {
+    public Employee(int index) {
         Scanner scanner = new Scanner(System.in);
         this.id = index;
 
@@ -28,7 +30,7 @@ public class Employee {
                 this.age = scanner.nextInt();
                 break;
             } else {
-                System.out.println("Invalid input! Please enter a valid integer.");
+                System.err.print("Invalid input! Please enter a valid integer\n");
                 scanner.next();
             }
         }
@@ -42,19 +44,47 @@ public class Employee {
                 this.salary = scanner.nextDouble();
                 break;
             } else {
-                System.out.println("Invalid input! Please enter a valid double number. ");
+                System.err.print("Invalid input! Please enter a valid double number\n");
                 scanner.next();
             }
         }
-        scanner.close();
     }
 
+    //Getters and setters
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+    public String getDepartment() {
+        return department;
+    }
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+    public double getSalary() {
+        return salary;
+    }
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+    //Methods
     @Override
     public String toString(){
-        return "#" + this.id + "\t\tName: " + this.name + "\t"+ "\tAge: " + this.age + "\t\tDepartment: " + this.department + "\t" + "\t\tSalary: " + this.salary;
+        return (String.format("%-5d %-20s %-5d %-12s %-10.2f", id, name, age, department, salary));
     }
-
-//    public Employee addNewEmployee(){
-//        return new Employee();
-//    }
 }
